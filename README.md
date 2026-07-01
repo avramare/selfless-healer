@@ -18,11 +18,31 @@ Most failures aren't bugs — they're broken *locators*. A developer renames a C
 
 `selfless-healer` adds a thin recovery layer in front of your locators. When the intended selector breaks, it re-finds the element from its *semantic intent* (accessibility role, test id, label, text), records the heal so the drift is visible, and caches the fix so it's paid for once. Crucially, it heals broken **locators**, never broken **features** — if an element genuinely no longer exists, the test fails loudly.
 
+## Project structure
+
+```
+selfless-healer/
+├─ src/self-heal/
+│  ├─ engine.ts        # the four-tier resolver (orchestration)
+│  ├─ strategies.ts    # descriptor → ordered, replayable recipes
+│  ├─ cache.ts         # persistent fast-path for prior heals
+│  ├─ logger.ts        # auditable heal report
+│  ├─ llm.ts           # optional, soft-dependency LLM tier
+│  ├─ config.ts        # env-driven configuration
+│  ├─ fixtures.ts      # Playwright `sh` fixture
+│  └─ types.ts
+├─ tests/
+│  ├─ pages/           # page objects (with deliberately stale selectors)
+│  └─ saucedemo.spec.ts
+├─ .github/workflows/ci.yml
+└─ playwright.config.ts
+```
+
 ## Quick start
 
 ```bash
 git clone https://github.com/avramare/selfless-healer.git
-cd reweave
+cd selfless-healer
 npm install
 npx playwright install --with-deps chromium
 npm test
