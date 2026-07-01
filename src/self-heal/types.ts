@@ -20,7 +20,7 @@ export type HealRecipe =
 /**
  * Semantic fallbacks that desribe *what the element is*
  */
-export interface Prescriptions {
+export interface Fallbacks {
   role?: { role: AriaRole; name?: string; exact?: boolean };
   testId?: string;
   text?: string;
@@ -38,7 +38,7 @@ export interface ElementDescriptor {
 
   intent: string;
 
-  prescriptions: Prescriptions;
+  fallbacks: Fallbacks;
 }
 
 export type HealTier = "primary" | "cache" | "rule-based" | "llm";

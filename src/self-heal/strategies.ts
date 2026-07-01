@@ -26,14 +26,14 @@ export function buildLocator(page: Page, recipe: HealRecipe): Locator {
 /**
  * Produce candidate recipes in priority order.
  *
- * The primary selector is always first (it's the most precise and the author's
- * intent). Semantic fallbacks follow, ordered by how resilient they tend to be:
+ * The primary selector is always first (it's the most precise and the author's intent).
+ * Semantic fallbacks follow, ordered by how resilient they tend to be:
  * accessibility role/name and test ids survive restyling and refactors far
  * better than CSS classes, so they come before raw CSS.
  */
 export function candidateRecipes(descriptor: ElementDescriptor): HealRecipe[] {
   const recipes: HealRecipe[] = [{ type: "selector", value: descriptor.primary }];
-  const fb = descriptor.prescriptions;
+  const fb = descriptor.fallbacks;
 
   if (!fb) return recipes;
 

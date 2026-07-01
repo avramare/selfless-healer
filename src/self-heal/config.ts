@@ -5,9 +5,6 @@ function bool(value: string | undefined, fallback: boolean): boolean {
   return ["1", "true", "yes", "on"].includes(value.toLowerCase());
 }
 
-/**
- * Loads the self-heal configuration from the environment.
- */
 export function loadConfig(): SelfHealConfig {
   return {
     llmEnabled:

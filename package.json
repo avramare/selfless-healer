@@ -16,7 +16,9 @@
   "author": "",
   "license": "MIT",
   "type": "commonjs",
-  "scripts": {},
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.0.1",
