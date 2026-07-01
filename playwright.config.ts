@@ -7,7 +7,7 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: [["list"], ["html", { open: "never" }]],
   use: {
-    baseURL: 'https://testautomationpractice.blogspot.com',
+    baseURL: "https://www.saucedemo.com",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     testIdAttribute: "data-test",

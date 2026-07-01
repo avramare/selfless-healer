@@ -5,4 +5,3 @@ playwright/.cache/
 .self-heal/
 .env
 *.log
-.claude/
