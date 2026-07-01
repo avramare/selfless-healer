@@ -15,7 +15,7 @@ export class HealReporter {
     this.events.push(event);
     // eslint-disable-next-line no-console
     console.warn(
-      `🩹 [reweave] healed "${event.key}" via ${event.tier}: ` +
+      `💊[selfless-healer] healed "${event.key}" via ${event.tier}: ` +
         `${event.brokenSelector} → ${describeRecipe(event.healedWith)} ` +
         `(${event.matchCount} match${event.matchCount === 1 ? "" : "es"})`,
     );
